@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+<!-- Writing field -->
+{% block body %}
+<div class="Padding">
+    <div class="container">
+        <form action="/msg_process/" method="POST">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Enter email or sms here</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="exampleFormControlTextarea1" rows="6"  ></textarea>
+            </div>
+            <div class="right_button">
+                <button type="submit" class="btn btn-outline-success">Check it</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- result -->
+<div class="container">
+    {% if start %}
+        {% if result == 0 %}
+        <div class="alert alert-success" role="alert">
+            Not spam 
+          </div>
+        {% else %}
+        <div class="alert alert-danger" role="alert">
+            It's spam
+          </div>
+        {% endif %}        
+    {% endif %}
+</div>
+
+{% endblock body %}
